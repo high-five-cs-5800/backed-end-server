@@ -38,5 +38,9 @@
   "UserBaseClass": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "UserClassBase": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }

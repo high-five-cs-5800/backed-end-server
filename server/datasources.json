@@ -11,7 +11,7 @@
     "password": "admin1",
     "name": "mongodb",
     "user": "admin",
-    "authoSource" : "admin",
+    "authoSource": "admin",
     "connector": "mongodb"
   }
 }
