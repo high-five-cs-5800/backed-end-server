@@ -10,7 +10,7 @@
     "database": "580project",
     "password": "admin1",
     "name": "mongodb",
-    "user": "adminx",
+    "user": "admin",
     "connector": "mongodb"
   }
 }
