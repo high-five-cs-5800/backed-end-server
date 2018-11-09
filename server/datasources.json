@@ -4,13 +4,13 @@
     "connector": "memory"
   },
   "mongodb": {
-    "host": "mlab.com",
+    "host": "ds045694.mlab.com",
     "port": 45694,
     "url": "mongodb://admin:admin1@ds045694.mlab.com:45694/580project",
     "database": "580project",
-    "password": "ds045695",
+    "password": "admin1",
     "name": "mongodb",
-    "user": "admin1",
+    "user": "adminx",
     "connector": "mongodb"
   }
 }
