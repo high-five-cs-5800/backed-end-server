@@ -1,0 +1,22 @@
+{
+  "name": "UserBaseClass",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "admin": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
