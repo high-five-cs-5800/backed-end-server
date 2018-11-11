@@ -16,7 +16,6 @@ app.start = function() {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
       console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
     }
-   //app.models.user.settings.acls = require('./user-acls.json');
   });
 };
 
