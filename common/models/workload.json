@@ -1,0 +1,37 @@
+{
+  "name": "Workload",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "cast_type": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "case_purpose": {
+      "type": "string",
+      "required": true,
+      "default": "'pre'"
+    },
+    "subject": {
+      "type": "string",
+      "required": true
+    },
+    "product_line": {
+      "type": "string",
+      "required": true
+    },
+    "archive": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

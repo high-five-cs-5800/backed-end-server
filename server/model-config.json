@@ -39,5 +39,17 @@
   "UserAccount": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "Contact": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Keyword": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Workload": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }
