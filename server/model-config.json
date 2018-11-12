@@ -39,5 +39,9 @@
   "UserAccount": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "WorkLoad": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }
