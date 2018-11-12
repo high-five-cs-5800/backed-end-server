@@ -1,5 +1,18 @@
 'use strict';
 var loopback = require('loopback');
+var ds = loopback.createDataSource(  "mongodb": {
+    "host": "ds045694.mlab.com",
+    "port": 45694,
+    "url": false,
+    "database": "580project",
+    "password": "admin1",
+    "name": "mongodb",
+    "user": "admin",
+    "authoSource": "admin",
+    "connector": "mongodb"
+  }
+);
+
 module.exports = function(Workload) {
     var ContactSchema  = {
         contact_ID:{
@@ -67,18 +80,21 @@ module.exports = function(Workload) {
     }
     };
 
-    var WorkLoad = loopback.Model.extend('work-load', CaseSchema);
-    WorkLoad.observe('before save', function(context, next) {
+    //var WorkLoad = loopback.Model.extend('work-load', CaseSchema);
+    //WorkLoad.observe('before save', function(context, next) {
         //check the context.req object for incoming object.
         //otherwise, search in context object.
-        console.log(context.req);
-        var reqObject = context.req;
+   //     console.log(context.req);
+   //     var reqObject = context.req;
 
         //get keys of productSchema
-        var allowedFields = Object.keys(caseSchema);
+   //     var allowedFields = Object.keys(caseSchema);
 
        //Iterate incoming object and delete extra fields
        //Using delete reqObject.extraField. if not matched to keys in allowedFields.
-    });
-
+    //});
+    var WorkLoad = ds.createModel('work-load', CaseSchem, {strict:true} );
+    var app = loopback();
+    app.use(loopback.rest());
+       
 };
