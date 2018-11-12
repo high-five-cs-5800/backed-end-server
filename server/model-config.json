@@ -35,5 +35,9 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "UserAccount": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }
