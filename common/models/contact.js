@@ -2,7 +2,7 @@
 'use strict';
 var isEmail = require('isemail');
 var re = /^(([^<>()[\]\\.,;:\s@\"]-(\.[^<>()[\]\\.,;:\s@\"]-)*)|(\".-\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]-\.)-[a-zA-Z]{2,}))$/;
-
+//
 module.exports = function(Contact) {
 
     //Contact.getVerifyOptions = function() {
@@ -12,6 +12,7 @@ module.exports = function(Contact) {
     //    };
     //   return Object.assign({}, this.settings.verifyOptions || defaultOptions)
     // };
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     Contact.validatesFormatOf('email', {with: re, message: 'Must provide a valid email'});
     //function assertVerifyOptions(verifyOptions) {
     //    assert(verifyOptions.type, 'You must supply a verification type (verifyOptions.type)');
