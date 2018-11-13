@@ -32,7 +32,7 @@
   },
   "validations": [],
   "relations": {
-    "contacts": {
+    "contact_info": {
       "type": "embedsOne",
       "model": "Contact",
       "property": "contact_info",
@@ -41,7 +41,7 @@
          "forceId": false
        }
     },
-    "keywordss": {
+    "keywordList": {
       "type": "embedsMany",
       "model": "Keyword",
       "property": "keywordList",
