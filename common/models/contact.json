@@ -32,7 +32,13 @@
     "caseSensitiveEmail": true
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "workload": {
+      "type": "belongsTo",
+      "model": "Workload",
+      "foreignKey": ""
+    }
+  },
   "acls": [
     {
       "principalType": "ROLE",
