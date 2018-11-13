@@ -26,8 +26,7 @@
       "type": "string",
       "required": true
     },
-    "emailVerified": "boolean",
-    "verificationToken": "string"
+    "emailVerified": "boolean"
   },
   "options": {
     "caseSensitiveEmail": true
