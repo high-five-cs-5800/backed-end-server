@@ -33,7 +33,7 @@
   "validations": [],
   "relations": {
     "contact_info": {
-      "type": "embedsOne",
+      "type": "hasOne",
       "model": "Contact",
       "property": "contact_info",
       "options": {
@@ -42,7 +42,7 @@
        }
     },
     "keywordList": {
-      "type": "embedsMany",
+      "type": "hasMany",
       "model": "Keyword",
       "property": "keywordList",
       "options": {
