@@ -28,6 +28,18 @@
       "type": "boolean",
       "required": false,
       "default": false
+    },
+    "case_request_detail": {
+      "type": "string",
+      "required": false
+    },
+    "help_response_detail": {
+      "type": "string",
+      "required" : false
+    },
+    "assigned_to_who": {
+      "type": "string",
+      "required" : false
     }
   },
   "validations": [],
