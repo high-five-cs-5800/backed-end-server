@@ -32,13 +32,16 @@ app.use(cors(corsOptions));
 
 app.start = function() {
   // start the web server
-  return app.listen(function() {
+  return app.listen(function(req, res) {
    //what is going on 
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
-    //app.get('/api/UserAccounts', function(req, res, next){
-    //    res.json({msg: 'This is CORS-ENABLE for all origins!'})
-    //})
+    app.get('/api/UserAccounts', function(req, res, next){
+        //res.json({msg: 'This is CORS-ENABLE for all origins!'})
+          res.header("Access-Control-Allow-Origin", "http://localhost:8081");
+          res.header("Access-Control-Allow-Headers");
+    })
+    
     console.log('Web server listening at: %s', baseUrl);
     if (app.get('loopback-component-explorer')) {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
