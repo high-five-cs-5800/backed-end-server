@@ -16,7 +16,7 @@ app.start = function() {
    //what is going on 
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
-    app.get('/api', function(req, res, next){
+    app.get('/api/UserAccounts', function(req, res, next){
         res.json({msg: 'This is CORS-ENABLE for all origins!'})
     })
     console.log('Web server listening at: %s', baseUrl);
