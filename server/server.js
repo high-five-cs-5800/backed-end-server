@@ -6,7 +6,7 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 //#
-var cors = requires('cors')
+var cors = require('cors')
 //#
 app.user(cors())
 
