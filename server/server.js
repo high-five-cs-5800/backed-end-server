@@ -8,12 +8,27 @@ var app = module.exports = loopback();
 //#
 var cors = require('cors')
 //#
-app.use(cors())
-app.use(function(req, res, next){
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+var originsWhitelist = [
+  'http://testdev-us-east-1.s3-website-us-east-1.amazonaws.com/'      //this is my front-end url for development
+];
+var corsOptions = {
+  origin: function(origin, callback){
+        var isWhitelisted = originsWhitelist.indexOf(origin) !== -1;
+        callback(null, isWhitelisted);
+  },
+  credentials:true
+}
+
+
+//here is the magic
+app.use(cors(corsOptions));
+
+//app.use(cors())
+//app.use(function(req, res, next){
+//  res.header("Access-Control-Allow-Origin", "*");
+//  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//  next();
+//});
 
 app.start = function() {
   // start the web server
