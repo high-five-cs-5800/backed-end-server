@@ -18,7 +18,7 @@ app.start = function() {
     var baseUrl = app.get('url').replace(/\/$/, '');
     app.get('/api', function(req, res, next){
         res.json({msg: 'This is CORS-ENABLE for all origins!'})
-    }
+    })
     console.log('Web server listening at: %s', baseUrl);
     if (app.get('loopback-component-explorer')) {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
