@@ -21,14 +21,19 @@ var corsOptions = {
 
 
 //here is the magic
-//app.use(cors(corsOptions));
-
-app.use(cors())
-app.use(function(req, res, next){
+app.use(cors(corsOptions), function(req, res, next){  
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
+    
 });
+
+//app.use(cors())
+//app.use(function(req, res, next){
+//  res.header("Access-Control-Allow-Origin", "*");
+//  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//  next();
+//});
 
 app.start = function() {
   // start the web server
@@ -36,11 +41,11 @@ app.start = function() {
    //what is going on 
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
-    app.get('/api/UserAccounts', function(req, res, next){
-        res.json({msg: 'This is CORS-ENABLE for all origins!' + baseUrl})
-          res.header("Access-Control-Allow-Origin", "http://localhost:8081");
-          res.header("Access-Control-Allow-Headers");
-    })
+    //app.get('/api/UserAccounts', function(req, res, next){
+    //    res.json({msg: 'This is CORS-ENABLE for all origins!' + baseUrl})
+    //      res.header("Access-Control-Allow-Origin", "http://localhost:8081");
+    //      res.header("Access-Control-Allow-Headers");
+    //})
     
     console.log('Web server listening at: %s', baseUrl);
     if (app.get('loopback-component-explorer')) {
