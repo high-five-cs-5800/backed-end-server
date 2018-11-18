@@ -9,14 +9,18 @@ var app = module.exports = loopback();
 var cors = require('cors')
 //#
 var originsWhitelist = [
-  'http://testdev-us-east-1.s3-website-us-east-1.amazonaws.com/'      //this is my front-end url for development
+  'http://testdev-us-east-1.s3-website-us-east-1.amazonaws.com/',      //this is my front-end url for development
+   'http://testdev-us-east-1.s3-website-us-east-1.amazonaws.com:80/'
 ];
+
 var corsOptions = {
   origin: function(origin, callback){
-        var isWhitelisted = originsWhitelist.indexOf(origin) !== -1;
-        callback(null, isWhitelisted);
-  },
-  credentials:true
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
 }
 
 
@@ -28,46 +32,51 @@ var corsOptions = {
 //    
 //});
 
-app.all('*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header("Access-Control-Allow-Headers", "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name");
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Credentials', true);
+//app.all('*', function(req, res, next) {
+//  res.header('Access-Control-Allow-Origin', '*');
+//  res.header("Access-Control-Allow-Headers", "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name");
+//  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
+//  res.header('Access-Control-Allow-Credentials', true);
 
-  if ('OPTIONS' == req.method) {
-      res.send(200);
-  } else {
-      next();
-  }
-});
+//  if ('OPTIONS' == req.method) {
+//      res.send(200);
+//  } else {
+//      next();
+//  }
+//});
 
 
-app.use(function (req, res, next) {
+//app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    //res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    //res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
     // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    //res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
+    //res.setHeader('Access-Control-Allow-Credentials', true);
 
     // Pass to next layer of middleware
-    next();
-});
+    //next();
+//});
 
 
-app.use(cors())
+//app.use(cors())
 //app.use(function(req, res, next){
 //  res.header("Access-Control-Allow-Origin", "*");
 //  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //  next();
 //});
+
+app.get('/api', cors(corsOptions), function (req, res, next) {
+    //res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
+})
+
 
 app.start = function() {
   // start the web server
