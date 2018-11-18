@@ -8,9 +8,6 @@
       "params": {
         "origin": true,
         "credentials": true,
-        //"exposedHeaders": true,
-        //"methods": "GET,POST,PUT,PATCH,DELETE,OPTIONS",
-        //"allowedHeaders": "Content-Type,Authorization",
         "maxAge": 86400
       }
     },
