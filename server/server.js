@@ -6,7 +6,7 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 //#
-//var cors = require('cors')
+var cors = require('cors')
 //#
 var whitelist = [
   'http://testdev-us-east-1.s3-website-us-east-1.amazonaws.com/*',      //this is my front-end url for development
@@ -20,59 +20,12 @@ var corsOptions = {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true)
     } else {
-
       callback(new Error('Not allowed by CORS' + origin))
-    }
+/    }
   }
 }
 
-
-//here is the magic
-//app.use(cors(corsOptions), function(req, res, next){  
-//  res.header("Access-Control-Allow-Origin", "*");
-//  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//  next();
-//    
-//});
-
-//app.all('*', function(req, res, next) {
-//  res.header('Access-Control-Allow-Origin', '*');
-//  res.header("Access-Control-Allow-Head
-
-//app.use(function (req, res, next) {
-
-    // Website you wish to allow to connect
-    //res.setHeader('Access-Control-Allow-Origin', '*');
-
-    // Request methods you wish to allow
-    //res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    //res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    //res.setHeader('Access-Control-Allow-Credentials', true);
-
-    // Pass to next layer of middleware
-    //next();
-//});
-
-
-//app.use(cors())
-//app.use(function(req, res, next){
-//  res.header("Access-Control-Allow-Origin", "*");
-//  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//  next();
-//});
-
-//app.get('/api/*', cors(corsOptions), function (req, res, next) {
-    //res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
-//    var baseUrl = app.get('url').replace(/\/$/, '');
-//    res.josin({msg: 'debug" + baseUrl })
-//    next();
-//})
-
+app.use(cors());
 
 app.start = function() {
   // start the web server
@@ -88,6 +41,24 @@ app.start = function() {
     }
   });
 };
+
+var enableCORS = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+    // intercept OPTIONS method
+    if ('OPTIONS' == req.method) {
+      res.sendStatus(200);
+    }
+    else {
+      next();
+    }
+};
+
+
+// enable CORS!
+app.use(enableCORS);
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
