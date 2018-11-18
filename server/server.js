@@ -6,7 +6,7 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 //#
-var cors = require('cors')
+//var cors = require('cors')
 //#
 var whitelist = [
   'http://testdev-us-east-1.s3-website-us-east-1.amazonaws.com/*',      //this is my front-end url for development
@@ -37,17 +37,7 @@ var corsOptions = {
 
 //app.all('*', function(req, res, next) {
 //  res.header('Access-Control-Allow-Origin', '*');
-//  res.header("Access-Control-Allow-Headers", "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name");
-//  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
-//  res.header('Access-Control-Allow-Credentials', true);
-
-//  if ('OPTIONS' == req.method) {
-//      res.send(200);
-//  } else {
-//      next();
-//  }
-//});
-
+//  res.header("Access-Control-Allow-Head
 
 //app.use(function (req, res, next) {
 
@@ -76,12 +66,12 @@ var corsOptions = {
 //  next();
 //});
 
-app.get('/api/*', cors(corsOptions), function (req, res, next) {
+//app.get('/api/*', cors(corsOptions), function (req, res, next) {
     //res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
-    var baseUrl = app.get('url').replace(/\/$/, '');
-    res.josin({msg: 'debug" + baseUrl })
-    next();
-})
+//    var baseUrl = app.get('url').replace(/\/$/, '');
+//    res.josin({msg: 'debug" + baseUrl })
+//    next();
+//})
 
 
 app.start = function() {
@@ -90,12 +80,7 @@ app.start = function() {
    //what is going on 
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
-    //app.get('/api/UserAccounts', function(req, res, next){
-    //    res.json({msg: 'This is CORS-ENABLE for all origins!' + baseUrl})
-    //      res.header("Access-Control-Allow-Origin", "http://localhost:8081");
-    //      res.header("Access-Control-Allow-Headers");
-    //})
-    
+
     console.log('Web server listening at: %s', baseUrl);
     if (app.get('loopback-component-explorer')) {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
