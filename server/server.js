@@ -28,6 +28,20 @@ var corsOptions = {
 //    
 //});
 
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Headers", "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name");
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Credentials', true);
+
+  if ('OPTIONS' == req.method) {
+      res.send(200);
+  } else {
+      next();
+  }
+});
+
+
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
