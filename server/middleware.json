@@ -13,6 +13,7 @@
         "allowedHeaders": "Content-Type,Authorization",
         "maxAge": 180
       }
+      "cors": false
     },
     "helmet#xssFilter": {},
     "helmet#frameguard": {
