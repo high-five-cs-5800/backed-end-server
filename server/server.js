@@ -8,7 +8,7 @@ var app = module.exports = loopback();
 //#
 var cors = require('cors')
 //#
-var originsWhitelist = [
+var wWhitelist = [
   'http://testdev-us-east-1.s3-website-us-east-1.amazonaws.com/',      //this is my front-end url for development
    'http://testdev-us-east-1.s3-website-us-east-1.amazonaws.com:80/'
 ];
