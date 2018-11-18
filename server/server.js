@@ -6,7 +6,7 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 //#
-var cors = require('cors')
+//var cors = require('cors')
 //#
 var originsWhitelist = [
   'http://testdev-us-east-1.s3-website-us-east-1.amazonaws.com/'      //this is my front-end url for development
