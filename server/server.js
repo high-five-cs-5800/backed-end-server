@@ -73,8 +73,9 @@ var corsOptions = {
 //  next();
 //});
 
-app.get('/api', cors(corsOptions), function (req, res, next) {
-    //res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
+app.get('/api/*', cors(corsOptions), function (req, res, next) {
+    res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
+    next();
 })
 
 
