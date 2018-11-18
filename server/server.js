@@ -15,15 +15,15 @@ var whitelist = [
   "http://testdev-us-east-1.s3-website-us-east-1.amazonaws.com"
 ];
 
-var corsOptions = {
-  origin: function(origin, callback){
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS' + origin))
-/    }
-  }
-}
+//var corsOptions = {
+//  origin: function(origin, callback){
+//    if (whitelist.indexOf(origin) !== -1) {
+//      callback(null, true)
+//    } else {
+//      callback(new Error('Not allowed by CORS' + origin))
+//    }
+//  }
+//}
 
 app.use(cors());
 
