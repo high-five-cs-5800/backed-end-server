@@ -7,7 +7,24 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+     "keywordList": {
+     "type": "hasMany",
+     "model": "Workload",
+     "property": "workloadList",
+     "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "workloadList"
+    }
+  ],
   "methods": {}
 }
