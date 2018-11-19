@@ -8,7 +8,7 @@
   "properties": {},
   "validations": [],
   "relations": {
-     "keywordList": {
+     "workloadList": {
      "type": "hasMany",
      "model": "Workload",
      "property": "workloadList",
