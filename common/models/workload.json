@@ -6,7 +6,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "cast_type": {
+    "case_type": {
       "type": "number",
       "required": true,
       "default": 0
