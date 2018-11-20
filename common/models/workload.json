@@ -36,10 +36,6 @@
     "help_response_detail": {
       "type": "string",
       "required" : false
-    },
-    "assigned_to_who": {
-      "type": "string",
-      "required" : false
     }
   },
   "validations": [],
