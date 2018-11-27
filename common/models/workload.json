@@ -55,7 +55,7 @@
       "property": "keywordList",
       "options": {
          "validate": false,
-         "forceId": true
+         "forceId": false
        }
     }
   },
