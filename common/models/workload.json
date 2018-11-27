@@ -43,7 +43,8 @@
     "contact_info": {
       "type": "hasOne",
       "model": "Contact",
-      "property": "contact_info",
+     // "property": "contact_info",
+      "foreignKey": "id",
       "options": {
          "validate": true,
          "forceId": false
@@ -52,7 +53,7 @@
     "keywordList": {
       "type": "hasMany",
       "model": "Keyword",
-      "property": "keywordList",
+     // "property": "keywordList",
       "foreignKey": "id",
       "options": {
          "validate": true,
