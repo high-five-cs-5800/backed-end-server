@@ -55,7 +55,7 @@
       "property": "keywordList",
       "foreignKey": "id",
       "options": {
-         "validate": true,
+         "validate": false,
          "forceId": false
        }
     }
