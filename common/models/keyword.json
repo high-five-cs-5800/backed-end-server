@@ -16,7 +16,7 @@
    "workload": {
       "type": "belongsTo",
       "model": "Workload",
-      "foreignKey": ""
+      "foreignKey": "id"
     }
   },
   "acls": [
