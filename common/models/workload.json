@@ -40,19 +40,19 @@
   },
   "validations": [],
   "relations": {
-    "_contact_info": {
+    "contact_info": {
       "type": "hasOne",
       "model": "Contact",
-      "property": "_contact_info",
+      "property": "contact_info",
       "options": {
          "validate": true,
          "forceId": false
        }
     },
-    "_keywordList": {
+    "keywordList": {
       "type": "hasMany",
       "model": "Keyword",
-      "property": "_keywordList",
+      "property": "keywordList",
       "foreignKey": "id",
       "options": {
          "validate": true,
