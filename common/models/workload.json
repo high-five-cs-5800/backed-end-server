@@ -53,10 +53,9 @@
       "type": "hasMany",
       "model": "Keyword",
       "property": "keywordList",
-      "foreignKey": "id",
       "options": {
          "validate": false,
-         "forceId": false
+         "forceId": true
        }
     }
   },
